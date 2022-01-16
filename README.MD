@@ -1,6 +1,6 @@
 # Timestamp microservice
 
-A project to learn how to create an API using Node & Express in a Test Driven Way using Jest & Supertest.
+A project to learn how to create an API using Node & Express in a Test Driven way using Jest & Supertest.
 
 ### Requirements
 

@@ -1,9 +1,9 @@
 const request = require("supertest");
 const app = require("../server");
 
-describe("App test", () => {
-    it("returns hello world", async () => {
-        const response = await request(app).get("/");
-        expect(response.text).toEqual("Hello World");
+describe("Get /api/:date", () => {
+    it("returns Unix timestamp when date is valid", async () => {
+        const response = await request(app).get("/api/10-01-21");
+        expect(response.body).toEqual({unix: '1642291200'});
     });
 });
