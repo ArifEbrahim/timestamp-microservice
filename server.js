@@ -4,7 +4,11 @@ const app = express();
 
 app.get("/api/:date", (req, res) => {
     const dt = DateTime.fromISO(req.params.date);
-    res.json({ unix: dt.toMillis() });
+    const dateResponse = {
+        unix: dt.toMillis(),
+        utc: dt.toFormat('EEE, dd MMM yyyy HH:mm:ss ZZZZ')
+    }
+    res.json(dateResponse);
 });
 
 module.exports = app;
