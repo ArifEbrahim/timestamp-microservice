@@ -17,4 +17,13 @@ app.get("/api/:date", (req, res) => {
     res.json(dateResponse);
 });
 
+app.get('/api/', (req,res) => {
+    const dt = DateTime.now()
+    const dateResponse = {
+        unix: dt.toMillis(),
+        utc: dt.toFormat("EEE, dd MMM yyyy HH:mm:ss ZZZZ"),
+    }
+    res.json(dateResponse);
+})
+
 module.exports = app;
