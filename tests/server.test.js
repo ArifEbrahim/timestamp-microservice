@@ -18,7 +18,14 @@ describe("Get /api/:date", () => {
         const response = await request(app).get("/api/1451001600000");
         expect(response.body).toEqual({
             unix: 1451001600000,
-            utc: "Fri, 25 Dec 2015 00:00:00 GMT"
-        })
+            utc: "Fri, 25 Dec 2015 00:00:00 GMT",
+        });
+    });
+
+    it("returns Invlaid Date when date is not valid", async () => {
+        const response = await request(app).get("/api/2021-01-80");
+        expect(response.body).toEqual({
+            error: "Invalid Date",
+        });
     });
 });
